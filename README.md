@@ -78,7 +78,7 @@ console.log(info)
 ```
 # ✨ Support
 You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help and support on [#npm-support](https://discord.com/channels/1196503995661942965/1249767884159455355) channel. Or if you send a friend to my [discord account](https://discord.com/users/389071682649849868), I will return as soon as possible.
-<br> </br>
+
 [![Discord Banner](https://api.weblutions.com/discord/invite/TCWbk7zWY5/)](https://discord.gg/TCWbk7zWY5)
 [![Discord User](https://lanyard-profile-readme.vercel.app/api/389071682649849868?hideActivity=true)](https://discord.com/users/389071682649849868)
 # 📚 License
