@@ -167,7 +167,8 @@ console.log(info)
 # ✨ Support
 You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help and support on [#npm-support](https://discord.com/channels/1196503995661942965/1249767884159455355) channel. Or if you send a friend to my [discord account](https://discord.com/users/389071682649849868), I will return as soon as possible.
 
-[![Discord Banner](https://api.weblutions.com/discord/invite/TCWbk7zWY5/)](https://discord.gg/TCWbk7zWY5)
-[![Discord User](https://lanyard-profile-readme.vercel.app/api/389071682649849868?hideActivity=true)](https://discord.com/users/389071682649849868)
+<p align="center"><a href="https://discord.gg/TCWbk7zWY5"><img src="https://api.weblutions.com/discord/invite/TCWbk7zWY5/"></a></p>
+<p align="center"><a href="https://discord.com/users/389071682649849868"><img src="https://lanyard-profile-readme.vercel.app/api/389071682649849868"></a></p>
+
 # 📜 License
 This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/beftlidev/streamer.info/blob/main/LICENSE) file for details.
