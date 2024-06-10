@@ -49,8 +49,8 @@ console.log(info)
   },
   isMature: true,
   start: {
-    row: '2024-06-10T15:03:09.000000Z',
     date: { 
+      row: '2024-06-10T15:03:09.000000Z',
       full: '15:03:09 06/10/2024', 
       separately: {
         time: { 
@@ -123,23 +123,23 @@ console.log(info)
     fullScreen: 'https://player.twitch.tv/?channel=lec&player=facebook&autoplay=true&parent=meta.tag'
   },
   start: {
-    row: '2024-06-10T13:45:28Z',
     date: { 
-        full: '13:45:28 06/10/2024', 
-        separately: {
-            time: { 
-                full: '13:45:28', 
-                hours: '13', 
-                minutes: '45', 
-                seconds: '28' 
-            },
-            date: { 
-                full: '06/10/2024', 
-                month: '06', 
-                day: '10', 
-                year: 2024 
-            }
-        } 
+      row: '2024-06-10T13:45:28Z',
+      full: '13:45:28 06/10/2024', 
+      separately: {
+        time: { 
+          full: '13:45:28', 
+          hours: '13', 
+          minutes: '45', 
+          seconds: '28' 
+        },
+        date: { 
+          full: '06/10/2024', 
+          month: '06', 
+          day: '10', 
+          year: 2024 
+        }
+      } 
     },
     timestamp: { 
         row: 1718027128, 
