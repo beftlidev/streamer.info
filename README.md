@@ -1,16 +1,16 @@
 # <img src="https://cdn.discordapp.com/emojis/1221913766145429505.png" alt="Kick logo" width="30"/> Streamer.Info - Streamer Information Module
-It gives you information about the active streams of streamers on Kick and Twitch.
+It gives you information about the active streams of streamers on **Kick** and **Twitch**.
 # 🔧 Installation
-- You can download streamer.info in powershell with this code.
+- You can download `streamer.info` in powershell with this code.
 ```js
 npm install streamer.info
 ```
-- You can download the modules needed for streamer.info to work with this powershell code.
+- You can download the modules needed for `streamer.info` to work with this powershell code.
 ```sheel
 npm install axios cheerio puppeteer
 ```
 # 🧱 Basic Usage
-Below are examples and results for Kick and Twitch.
+Below are examples and results for **Kick** and **Twitch**.
 ## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick
 - Code:
 ```js
@@ -166,4 +166,4 @@ You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help
 [![Discord Banner](https://api.weblutions.com/discord/invite/TCWbk7zWY5/)](https://discord.gg/TCWbk7zWY5)
 [![Discord User](https://lanyard-profile-readme.vercel.app/api/389071682649849868?hideActivity=true)](https://discord.com/users/389071682649849868)
 # 📜 License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/beftlidev/streamer.info/blob/main/LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/beftlidev/streamer.info/blob/main/LICENSE) file for details.
