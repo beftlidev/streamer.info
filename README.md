@@ -1,5 +1,5 @@
 # <img src="https://cdn.discordapp.com/emojis/1221913766145429505.png" alt="Kick logo" width="30"/> Streamer.Info - Streamer Information Module
-It gives you information about the active streams of streamers on Twitch and `Kick (coming soon)`.
+It gives you information about the active streams of streamers on Kick and Twitch.
 # 🔧 Installation
 - You can download streamer.info in powershell with this code.
 ```js
