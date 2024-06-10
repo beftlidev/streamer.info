@@ -1,17 +1,101 @@
 # Streamer.Info - Streamer Information Module
 It gives you information about the active streams of streamers on Twitch and `Kick (coming soon)`.
 # 🔧 Installation
+- You can download streamer.info in powershell with this code.
 ```js
 npm install streamer.info
 ```
+- You can download the modules needed for streamer.info to work with this powershell code.
+```sheel
+npm install axios cheerio puppeteer
+```
 # 🧱 Basic Usage
+Below are examples and results for Kick and Twitch.
+## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick
+- Code:
+```js
+const { Kick } = require("streamer.info")
+
+const kick = new Kick()
+
+const info = await kick.getStream("sam")
+
+console.log(info)
+```
+- On Stream Result: 
+```js
+{
+  live: true,
+  error: false,
+  id: 30166828,
+  title: 'IRL IS BACK! Gamble > BUY WORLDS SMALLEST CAR > Amsterdam |  Sam Pepper Live',
+  language: 'English',
+  viewers: 5221,
+  category: {
+    id: 15,
+    name: 'Just Chatting',
+    slug: 'just-chatting',
+    tags: [ 'IRL' ],
+    parent_category: { 
+      id: 2, 
+      slug: 'irl' 
+    }
+  },
+  thumbnail: 'https://images.kick.com/video_thumbnails/z7oMLoDcD3va/V5nebj3n2vqk/720.webp',
+  urls: { 
+    stream: 'https://kick.com/sam'
+  },
+  isMature: true,
+  start: {
+    row: '2024-06-10T15:03:09.000000Z',
+    date: { 
+      full: '15:03:09 06/10/2024', 
+      separately: {
+        time: { 
+          full: '15:03:09', 
+          hours: '15', 
+          minutes: '03', 
+          seconds: '09' 
+        },
+        date: { 
+          full: '06/10/2024', 
+          month: '06', 
+          day: '10', 
+          year: 2024 
+        }
+      }
+    },
+    timestamp: { 
+      row: 1718031789, 
+      discord: {
+        shortTime: '<t:1718031789:t>',
+        longTime: '<t:1718031789:T>',
+        shortDate: '<t:1718031789:d>',
+        longDate: '<t:1718031789:D>',
+        longDateWithShortTime: '<t:1718031789:f>',
+        longDateWithDayOfWeekAndShortTime: '<t:1718031789:F>',
+        relative: '<t:1718031789:R>'
+      }
+    }
+  }
+}
+```
+- Not On Stream Result:
+```js
+{ live: false, error: false }
+```
+- Error Result:
+```js
+{ live: false, error: string }
+```
+## <img src="https://cdn.discordapp.com/emojis/1221761381942956033.png" alt="Kick logo" width="17"/> Twitch
 - Code:
 ```js
 const { Twitch } = require("streamer.info")
 
 const twitch = new Twitch()
 
-const info = await twitch.getStream("valorant")
+const info = await twitch.getStream("lec")
 
 console.log(info)
 ```
@@ -22,7 +106,7 @@ console.log(info)
   error: false,
   name: 'LEC - Twitch',
   title: 'GX vs SK | 2024 LEC Summer Split Regular Season',
-  thumbnails: {
+  thumbnail: {
     src: [
       'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-80x45.jpg',
       'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-320x180.jpg',
@@ -56,13 +140,13 @@ console.log(info)
     timestamp: { 
         row: 1718027128, 
         discord: {
-            shortTime: '<t:1718027128:t>',
-            longTime: '<t:1718027128:T>',
-            shortDate: '<t:1718027128:d>',
-            longDate: '<t:1718027128:D>',
-            longDateWithShortTime: '<t:1718027128:f>',
-            longDateWithDayOfWeekAndShortTime: '<t:1718027128:F>',
-            relative: '<t:1718027128:R>'
+          shortTime: '<t:1718027128:t>',
+          longTime: '<t:1718027128:T>',
+          shortDate: '<t:1718027128:d>',
+          longDate: '<t:1718027128:D>',
+          longDateWithShortTime: '<t:1718027128:f>',
+          longDateWithDayOfWeekAndShortTime: '<t:1718027128:F>',
+          relative: '<t:1718027128:R>'
         }
     }
   }
