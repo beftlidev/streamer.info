@@ -18,7 +18,7 @@ const { Kick } = require("streamer.info")
 
 const kick = new Kick()
 
-const info = await kick.getStream("username")
+const info = await kick.getStream("StreamerUsername")
 
 console.log(info)
 ```
@@ -95,7 +95,7 @@ const { Twitch } = require("streamer.info")
 
 const twitch = new Twitch()
 
-const info = await twitch.getStream("username")
+const info = await twitch.getStream("StreamerUsername")
 
 console.log(info)
 ```
