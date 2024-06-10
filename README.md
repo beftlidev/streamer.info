@@ -1,4 +1,4 @@
-# Streamer.Info - Streamer Information Module
+# <img src="https://cdn.discordapp.com/emojis/1221913766145429505.png" alt="Kick logo" width="30"/> Streamer.Info - Streamer Information Module
 It gives you information about the active streams of streamers on Twitch and `Kick (coming soon)`.
 # 🔧 Installation
 - You can download streamer.info in powershell with this code.
@@ -165,5 +165,5 @@ You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help
 
 [![Discord Banner](https://api.weblutions.com/discord/invite/TCWbk7zWY5/)](https://discord.gg/TCWbk7zWY5)
 [![Discord User](https://lanyard-profile-readme.vercel.app/api/389071682649849868?hideActivity=true)](https://discord.com/users/389071682649849868)
-# 📚 License
+# 📜 License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/beftlidev/streamer.info/blob/main/LICENSE) file for details.
