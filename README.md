@@ -5,9 +5,12 @@ It gives you information about the active streams of streamers on **Kick** and *
 ```js
 npm install streamer.info
 ```
-- You can download the modules needed for `streamer.info` to work with this powershell code.
+- With this powershell code you need to download the modules needed for `streamer.info` to work. 
 ```sheel
 npm install axios cheerio puppeteer
+```
+```shell
+npx puppeteer browsers install chrome
 ```
 # 🧱 Basic Usage
 Below are examples and results for **Kick** and **Twitch**.
