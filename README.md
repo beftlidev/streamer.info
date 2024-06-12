@@ -13,7 +13,22 @@ npm install axios cheerio puppeteer
 npx puppeteer browsers install chrome
 ```
 # 🧱 Basic Usage
-Below are examples and results for **Kick** and **Twitch**.
+Below are examples and results for **Kick** and **Twitch**. And if you want to do version control automatically, we have extra code.
+## <img src="https://cdn.discordapp.com/emojis/1217435722789683241.png" alt="Kick logo" width="17"/> Check Update
+- Code: 
+```js
+const { checkUpdate } = require("streamer.info")
+
+client.on("ready", async() => {
+
+    await checkUpdate()
+    
+})
+```
+- Result if the module is out of date (Automatically logs to the console.):
+```shell
+Streamer.Info is out of date! Remember to use "npm update streamer.info" ( Old Version -> New Version ) in powershell to take advantage of the new features.
+```
 ## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick
 - Code:
 ```js
