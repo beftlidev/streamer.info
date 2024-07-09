@@ -1,6 +1,6 @@
 {
     "name": "streamer.info",
-    "version": "1.2.0",
+    "version": "1.4.0",
     "description": "You will receive information about streamers streams on the platforms where they are available.",
     "main": "index.js",
     "scripts": {
