@@ -29,7 +29,7 @@ client.on("ready", async() => {
 ```shell
 Streamer.Info is out of date! Remember to use "npm update streamer.info" ( Old Version -> New Version ) in powershell to take advantage of the new features.
 ```
-## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick
+## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick Get Stream
 - Code:
 ```js
 const { Kick } = require("streamer.info")
@@ -108,14 +108,70 @@ console.log(info)
 ```js
 { live: false, error: string }
 ```
-## <img src="https://cdn.discordapp.com/emojis/1221761381942956033.png" alt="Kick logo" width="17"/> Twitch
+## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick Get Streamer Profile
+- Code:
+```js
+const { Kick } = require("streamer.info")
+
+const kick = new Kick()
+
+const streamerUsername = "elraenn"
+
+const info = await kick.getStreamerProfile(streamerUsername)
+
+console.log(info)
+```
+- Success Result: 
+```js
+{
+  success: true,
+  error: false,
+  avatar: 'https://files.kick.com/images/user/27018175/profile_image/conversion/3c56e5cb-afc0-4760-93fb-f1e1bfb44e86-fullsize.webp',
+  bio: '"What we do in life, echoes in eternity."',
+  verified: true,
+  socials: {
+    instagram: {
+      row: 'tugkangonultas',
+      link: 'https://instagram.com/tugkangonultas'
+    },
+    x: { 
+      row: false, 
+      link: false 
+    },
+    youtube: { 
+      row: 'Elraenn', 
+      link: 'https://youtube.com/Elraenn' 
+    },
+    discord: { 
+      row: false 
+    },
+    tiktok: { 
+      row: false, 
+      link: false 
+    },
+    facebook: { 
+      row: false, 
+      link: false
+    }
+  }
+}
+```
+- If No Profile Result:
+```js
+{ success: false, error: false }
+```
+- Error Result:
+```js
+{ success: false, error: string }
+```
+## <img src="https://cdn.discordapp.com/emojis/1221761381942956033.png" alt="Kick logo" width="17"/> Twitch Get Stream
 - Code:
 ```js
 const { Twitch } = require("streamer.info")
 
 const twitch = new Twitch()
 
-const streamerUsername = "lec"
+const streamerUsername = "grimm"
 
 const info = await twitch.getStream(streamerUsername)
 
@@ -126,50 +182,51 @@ console.log(info)
 {
   live: true,
   error: false,
-  name: 'LEC - Twitch',
-  title: 'GX vs SK | 2024 LEC Summer Split Regular Season',
+  name: 'Grimm - Twitch',
+  avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/460b9db2-562d-4bd0-af57-f1eb6f5a462c-profile_image-300x300.png',
+  title: '🟥T1 GRIM🟥AWOKEN FROM MY SLUMBER🟥TIME TO GET ACTIVE🟥SAGE WALL ALL OVER THE ENEMIES🟥LETS BE GREAT🟥',
   thumbnail: {
     src: [
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-80x45.jpg',
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-320x180.jpg',
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-640x360.jpg'
+      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-80x45.jpg',
+      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-320x180.jpg',
+      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-640x360.jpg'
     ],
-    bestResolution: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_lec-640x360.jpg'
+    bestResolution: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-640x360.jpg'
   },
   urls: {
-    stream: 'https://www.twitch.tv/lec',
-    fullScreen: 'https://player.twitch.tv/?channel=lec&player=facebook&autoplay=true&parent=meta.tag'
+    stream: 'https://www.twitch.tv/grimm',
+    fullScreen: 'https://player.twitch.tv/?channel=grimm&player=facebook&autoplay=true&parent=meta.tag'
   },
   start: {
-    date: { 
-      row: '2024-06-10T13:45:28Z',
-      full: '13:45:28 06/10/2024', 
+    date: {
+      row: '2024-07-09T17:56:00Z',
+      full: '17:56:00 07/09/2024',
       separately: {
         time: { 
-          full: '13:45:28', 
-          hours: '13', 
-          minutes: '45', 
-          seconds: '28' 
+          full: '17:56:00', 
+          hours: '17', 
+          minutes: '56', 
+          seconds: '00' 
         },
         date: { 
-          full: '06/10/2024', 
-          month: '06', 
-          day: '10', 
+          full: '07/09/2024', 
+          month: '07', 
+          day: '09', 
           year: 2024 
         }
-      } 
+      }
     },
     timestamp: { 
-        row: 1718027128, 
-        discord: {
-          shortTime: '<t:1718027128:t>',
-          longTime: '<t:1718027128:T>',
-          shortDate: '<t:1718027128:d>',
-          longDate: '<t:1718027128:D>',
-          longDateWithShortTime: '<t:1718027128:f>',
-          longDateWithDayOfWeekAndShortTime: '<t:1718027128:F>',
-          relative: '<t:1718027128:R>'
-        }
+      row: 1720547760, 
+      discord: {
+        shortTime: '<t:1720547760:t>',
+        longTime: '<t:1720547760:T>',
+        shortDate: '<t:1720547760:d>',
+        longDate: '<t:1720547760:D>',
+        longDateWithShortTime: '<t:1720547760:f>',
+        longDateWithDayOfWeekAndShortTime: '<t:1720547760:F>',
+        relative: '<t:1720547760:R>'
+      }
     }
   }
 }
