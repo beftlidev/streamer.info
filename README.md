@@ -239,39 +239,6 @@ console.log(info)
 ```js
 { live: false, error: string }
 ```
-## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Video
-- Code:
-```js
-const { YouTube } = require("streamer.info")
-
-const youtube = new YouTube()
-
-const youtuberUsername = "TenZ"
-
-const info = await youtube.getLatestVideo(youtuberUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
-{
-  success: true,
-  error: false,
-  title: 'The VALORANT Ultimate Guide for Beginners !! | SEN TenZ',
-  thumbnail: 'https://i.ytimg.com/vi/3xjpx8-2gD0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDUoITAP&rs=AOn4CLCl-uWjDEg22mbHexdehEkulmkC9w',
-  urls: { 
-    video: 'https://www.youtube.com/watch?v=3xjpx8-2gD0' 
-  }
-}
-```
-- Not On Stream Result:
-```js
-{ success: false, error: false }
-```
-- Error Result:
-```js
-{ success: false, error: string }
-```
 ## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Shorts
 - Code:
 ```js
@@ -291,9 +258,44 @@ console.log(info)
   success: true,
   error: false,
   title: 'Bro did it again #theultimatenerd #gamingsetup #gamingroom #gamer',
+  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
   thumbnail: 'https://i.ytimg.com/vi/2375amwi4oE/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBFe_br2Z8x44HoQhVcPzLMLyhEcQ',
   urls: { 
     video: 'https://www.youtube.com/shorts/2375amwi4oE' 
+  }
+}
+```
+- Not On Stream Result:
+```js
+{ success: false, error: false }
+```
+- Error Result:
+```js
+{ success: false, error: string }
+```
+## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Video
+- Code:
+```js
+const { YouTube } = require("streamer.info")
+
+const youtube = new YouTube()
+
+const youtuberUsername = "TenZ"
+
+const info = await youtube.getLatestVideo(youtuberUsername)
+
+console.log(info)
+```
+- On Stream Result: 
+```js
+{
+  success: true,
+  error: false,
+  title: 'The VALORANT Ultimate Guide for Beginners !! | SEN TenZ',
+  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
+  thumbnail: 'https://i.ytimg.com/vi/3xjpx8-2gD0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDUoITAP&rs=AOn4CLCl-uWjDEg22mbHexdehEkulmkC9w',
+  urls: { 
+    video: 'https://www.youtube.com/watch?v=3xjpx8-2gD0' 
   }
 }
 ```
@@ -324,6 +326,7 @@ console.log(info)
   live: true,
   error: false,
   title: 'AP BREN VS ONIC// ESL SNAPDRAGON 5  PLAYOFF',
+  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
   viewers: '364',
   thumbnail: 'https://i.ytimg.com/vi/gpCMTU2oSE0/hqdefault_live.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsxG64BrXJf5LKs1F04fgI6fHs9A',
   urls: { 
