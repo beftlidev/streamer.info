@@ -1,5 +1,5 @@
 # <img src="https://cdn.discordapp.com/emojis/1221913766145429505.png" alt="Kick logo" width="30"/> Streamer.Info - Streamer Information Module
-It gives you information about the active streams of streamers on **Kick** and **Twitch**.
+It gives you information about the active streams of streamers on **Kick**, **Twitch** and **YouTube**.
 # 🔧 Installation
 - You can download `streamer.info` in powershell with this code.
 ```js
@@ -13,7 +13,7 @@ npm install axios cheerio puppeteer
 npx puppeteer browsers install chrome
 ```
 # 🧱 Basic Usage
-Below are examples and results for **Kick** and **Twitch**. And if you want to do version control automatically, we have extra code.
+Below are examples and results for **Kick**, **Twitch** and **YouTube**. And if you want to do version control automatically, we have extra code.
 ## <img src="https://cdn.discordapp.com/emojis/1217435722789683241.png" alt="Kick logo" width="17"/> Check Update
 - Code: 
 ```js
@@ -239,6 +239,74 @@ console.log(info)
 ```js
 { live: false, error: string }
 ```
+## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Video
+- Code:
+```js
+const { YouTube } = require("streamer.info")
+
+const youtube = new YouTube()
+
+const youtuberUsername = "TenZ"
+
+const info = await youtube.getStream(youtuberUsername)
+
+console.log(info)
+```
+- On Stream Result: 
+```js
+{
+  success: true,
+  error: false,
+  title: 'The VALORANT Ultimate Guide for Beginners !! | SEN TenZ',
+  thumbnail: 'https://i.ytimg.com/vi/3xjpx8-2gD0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDUoITAP&rs=AOn4CLCl-uWjDEg22mbHexdehEkulmkC9w',
+  urls: { 
+    video: 'https://www.youtube.com/watch?v=3xjpx8-2gD0' 
+  }
+}
+```
+- Not On Stream Result:
+```js
+{ success: false, error: false }
+```
+- Error Result:
+```js
+{ success: false, error: string }
+```
+## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Stream
+- Code:
+```js
+const { YouTube } = require("streamer.info")
+
+const youtube = new YouTube()
+
+const youtuberUsername = "apex47"
+
+const info = await youtube.getStream(youtuberUsername)
+
+console.log(info)
+```
+- On Stream Result: 
+```js
+{
+  live: true,
+  error: false,
+  title: 'AP BREN VS ONIC// ESL SNAPDRAGON 5  PLAYOFF',
+  viewers: '364',
+  thumbnail: 'https://i.ytimg.com/vi/gpCMTU2oSE0/hqdefault_live.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsxG64BrXJf5LKs1F04fgI6fHs9A',
+  urls: { 
+    video: 'https://www.youtube.com/watch?v=gpCMTU2oSE0' 
+  }
+}
+```
+- Not On Stream Result:
+```js
+{ live: false, error: false }
+```
+- Error Result:
+```js
+{ live: false, error: string }
+```
+
 # ✨ Support
 You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help and support on [#npm-support](https://discord.com/channels/1196503995661942965/1249767884159455355) channel. Or if you send a friend to my [discord account](https://discord.com/users/389071682649849868), I will return as soon as possible.
 
