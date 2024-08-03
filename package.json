@@ -1,13 +1,13 @@
 {
     "name": "streamer.info",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "You will receive information about streamers streams on the platforms where they are available.",
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
-      "streamer.info", "stream", "stream info", "discord", "stream info", "kick", "twitch", "kick stream", "twitch stream"
+      "streamer.info", "stream", "stream info", "discord", "stream info", "streamer info", "kick", "twitch", "youtube", "kick stream", "twitch stream", "youtube stream", "youtube video"
     ],
     "engines": {
       "node": ">=14.0.0"
