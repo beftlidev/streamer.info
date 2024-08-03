@@ -248,7 +248,7 @@ const youtube = new YouTube()
 
 const youtuberUsername = "TenZ"
 
-const info = await youtube.getStream(youtuberUsername)
+const info = await youtube.getLatestVideo(youtuberUsername)
 
 console.log(info)
 ```
@@ -261,6 +261,39 @@ console.log(info)
   thumbnail: 'https://i.ytimg.com/vi/3xjpx8-2gD0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDUoITAP&rs=AOn4CLCl-uWjDEg22mbHexdehEkulmkC9w',
   urls: { 
     video: 'https://www.youtube.com/watch?v=3xjpx8-2gD0' 
+  }
+}
+```
+- Not On Stream Result:
+```js
+{ success: false, error: false }
+```
+- Error Result:
+```js
+{ success: false, error: string }
+```
+## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Shorts
+- Code:
+```js
+const { YouTube } = require("streamer.info")
+
+const youtube = new YouTube()
+
+const youtuberUsername = "dinocornel"
+
+const info = await youtube.getLatestShorts(youtuberUsername)
+
+console.log(info)
+```
+- On Stream Result: 
+```js
+{
+  success: true,
+  error: false,
+  title: 'Bro did it again #theultimatenerd #gamingsetup #gamingroom #gamer',
+  thumbnail: 'https://i.ytimg.com/vi/2375amwi4oE/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBFe_br2Z8x44HoQhVcPzLMLyhEcQ',
+  urls: { 
+    video: 'https://www.youtube.com/shorts/2375amwi4oE' 
   }
 }
 ```
