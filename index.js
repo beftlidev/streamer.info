@@ -433,6 +433,75 @@ class YouTube {
 
     }
 
+    async getLatestShorts(username) {
+
+        let browser;
+
+        if (!username) return { success: false, error: "You have to enter a youtuber name." }
+
+        try {
+
+            browser = await puppeteer.launch({
+                headless: 'new'
+            });
+
+            const page = await browser.newPage();
+
+            await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3');
+
+            const response = await page.goto(`https://www.youtube.com/@${username}/shorts`, {
+                waitUntil: 'networkidle2'
+            });
+
+            if (response && response.ok()) {
+
+                const latestVideoSelector = 'ytd-rich-item-renderer:first-child';
+                await page.waitForSelector(latestVideoSelector);
+
+                const info = await page.evaluate((selector) => {
+                    try {
+                        const element = document.querySelector(selector);
+                        const title = element.querySelector('#video-title');
+                        const thumbnail = document.querySelector("#thumbnail > yt-image > img")
+                        const url = element.querySelector('a#thumbnail');
+                        return {
+                            title: title ? title.textContent.trim() : false,
+                            thumbnail: thumbnail ? thumbnail.src : false,
+                            url: url ? url.href : false
+                        };
+                    } catch(e) {
+                        return false
+                    }
+                }, latestVideoSelector);
+
+                if (!info) return { success: false, error: false }
+
+                const { title, thumbnail, url } = info;
+
+                return {
+                    success: true,
+                    error: false,
+                    title,
+                    thumbnail,
+                    urls: {
+                        video: url
+                    }
+                };
+
+            } else {
+                return { success: false, error: `Failed to load URL: ${response?.status()} - ${response?.statusText()}` }
+            }
+
+        } catch (error) {
+            return { success: false, error }
+        } finally {
+            if (browser) {
+                await browser.close();
+            }
+        }
+
+    }
+
     async getStream(username) {
 
         let browser;
