@@ -1,26 +1,45 @@
 {
-    "name": "streamer.info",
-    "version": "1.6.0",
-    "description": "You will receive information about streamers streams on the platforms where they are available.",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-      "streamer.info", "stream", "video", "shorts", "stream info", "discord", "stream info", "streamer info", "kick", "twitch", "youtube", "kick stream", "twitch stream", "youtube stream", "youtube video", "youtube shorts"
-    ],
-    "engines": {
-      "node": ">=14.0.0"
-    },
-    "author": "Beftli",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/beftlidev/streamer.info/issues"
-    },
-    "dependencies": {
-      "axios": "^1.7.2",
-      "cheerio": "^1.0.0-rc.12",
-      "puppeteer": "^22.10.0"
-    },
-    "homepage": "https://github.com/beftlidev/streamer.info/#readme"
-  }
+  "name": "streamer.info",
+  "version": "2.0.0",
+  "description": "You will receive information about streamers streams on the platforms where they are available.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint dist/**/*.js || echo 'Lint requires build first. Run: npm run build'",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "streamer.info", "stream", "video", "shorts", "stream info", "discord", "stream info", "streamer info", "kick", "twitch", "youtube", "kick stream", "twitch stream", "youtube stream", "youtube video", "youtube shorts", "typescript"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "Beftli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beftlidev/streamer.info/issues"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
+    "puppeteer": "^24.12.1",
+    "fast-xml-parser": "^5.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
+    "eslint": "^9.30.1",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "homepage": "https://github.com/beftlidev/streamer.info/#readme"
+}

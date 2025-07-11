@@ -1,353 +1,324 @@
-# <img src="https://cdn.discordapp.com/emojis/1221913766145429505.png" alt="Kick logo" width="30"/> Streamer.Info - Streamer Information Module
-It gives you information about the active streams of streamers on **Kick**, **Twitch** and **YouTube**.
-# 🔧 Installation
-- You can download `streamer.info` in powershell with this code.
-```js
+# Streamer.Info - TypeScript Edition 🚀
+
+[![npm version](https://badge.fury.io/js/streamer.info.svg)](https://badge.fury.io/js/streamer.info)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js CI](https://img.shields.io/badge/Node.js-%3E%3D16-green.svg)](https://nodejs.org)
+
+A high-performance, type-safe, and modular library for fetching streamer information from **Kick**, **Twitch**, and **YouTube** platforms.
+
+## ✨ Features
+
+- 🎯 **Type Safe**: Full TypeScript support with comprehensive type definitions
+- ⚡ **High Performance**: Browser instance pooling, RSS feeds, and optimized requests
+- 🔄 **Auto Retry**: Intelligent retry mechanism for network failures
+- 🧹 **Clean API**: Simple and consistent interface across all platforms
+- 📦 **Modular**: Use only the platforms you need
+- 🚀 **Modern**: ES2020+ with async/await support
+- 🌐 **RSS Support**: YouTube integration via RSS feeds for better reliability
+
+## 🚀 Installation
+
+```bash
 npm install streamer.info
 ```
-- With this powershell code you need to download the modules needed for `streamer.info` to work. 
-```sheel
-npm install axios cheerio puppeteer
+
+## 📖 Quick Start
+
+```typescript
+import { Kick, Twitch, YouTube, checkUpdate } from 'streamer.info';
+
+// Check for updates
+await checkUpdate();
+
+// Kick stream information
+const kickStream = await Kick.getStream('username');
+if (kickStream.live) {
+  console.log(`${kickStream.title} - ${kickStream.viewers} viewers`);
+}
+
+// Twitch stream information
+const twitchStream = await Twitch.getStream('username');
+if (twitchStream.live) {
+  console.log(`${twitchStream.title} - ${twitchStream.viewers} viewers`);
+}
+
+// YouTube latest video
+const youtubeVideo = await YouTube.getLatestVideo('username');
+if (youtubeVideo.success) {
+  console.log(`Latest video: ${youtubeVideo.title}`);
+}
 ```
-```shell
-npx puppeteer browsers install chrome
-```
-# 🧱 Basic Usage
-Below are examples and results for **Kick**, **Twitch** and **YouTube**. And if you want to do version control automatically, we have extra code.
-## <img src="https://cdn.discordapp.com/emojis/1217435722789683241.png" alt="Kick logo" width="17"/> Check Update
-- Code: 
-```js
-const { checkUpdate } = require("streamer.info")
 
-client.on("ready", async() => {
+## 🎮 Platform Support
 
-    await checkUpdate()
-    
-})
-```
-- Result if the module is out of date (Automatically logs to the console.):
-```shell
-Streamer.Info is out of date! Remember to use "npm update streamer.info" ( Old Version -> New Version ) in powershell to take advantage of the new features.
-```
-## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick Get Stream
-- Code:
-```js
-const { Kick } = require("streamer.info")
+### Kick.com
 
-const kick = new Kick()
+```typescript
+import { Kick } from 'streamer.info';
 
-const streamerUsername = "sam"
-
-const info = await kick.getStream(streamerUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
+// Stream information
+const stream = await Kick.getStream('username');
+/*
+Response:
 {
   live: true,
   error: false,
-  id: 30166828,
-  title: 'IRL IS BACK! Gamble > BUY WORLDS SMALLEST CAR > Amsterdam |  Sam Pepper Live',
-  language: 'English',
-  viewers: 5221,
-  category: {
-    id: 15,
-    name: 'Just Chatting',
-    slug: 'just-chatting',
-    tags: [ 'IRL' ],
-    parent_category: { 
-      id: 2, 
-      slug: 'irl' 
-    }
-  },
-  thumbnail: 'https://images.kick.com/video_thumbnails/z7oMLoDcD3va/V5nebj3n2vqk/720.webp',
-  urls: { 
-    stream: 'https://kick.com/sam'
-  },
-  isMature: true,
-  start: {
-    date: { 
-      row: '2024-06-10T15:03:09.000000Z',
-      full: '15:03:09 06/10/2024', 
-      separately: {
-        time: { 
-          full: '15:03:09', 
-          hours: '15', 
-          minutes: '03', 
-          seconds: '09' 
-        },
-        date: { 
-          full: '06/10/2024', 
-          month: '06', 
-          day: '10', 
-          year: 2024 
-        }
-      }
-    },
-    timestamp: { 
-      row: 1718031789, 
-      discord: {
-        shortTime: '<t:1718031789:t>',
-        longTime: '<t:1718031789:T>',
-        shortDate: '<t:1718031789:d>',
-        longDate: '<t:1718031789:D>',
-        longDateWithShortTime: '<t:1718031789:f>',
-        longDateWithDayOfWeekAndShortTime: '<t:1718031789:F>',
-        relative: '<t:1718031789:R>'
-      }
-    }
-  }
+  id: "stream-id",
+  title: "Stream title",
+  language: "en",
+  viewers: 1250,
+  category: "Just Chatting",
+  thumbnail: "https://...",
+  urls: { stream: "https://kick.com/username" },
+  isMature: false,
+  start: { date: {...}, timestamp: {...} }
 }
-```
-- Not On Stream Result:
-```js
-{ live: false, error: false }
-```
-- Error Result:
-```js
-{ live: false, error: string }
-```
-## <img src="https://cdn.discordapp.com/emojis/1249372855796502539.png" alt="Kick logo" width="17"/> Kick Get Streamer Profile
-- Code:
-```js
-const { Kick } = require("streamer.info")
+*/
 
-const kick = new Kick()
-
-const streamerUsername = "elraenn"
-
-const info = await kick.getStreamerProfile(streamerUsername)
-
-console.log(info)
-```
-- Success Result: 
-```js
+// Profile information
+const profile = await Kick.getStreamerProfile('username');
+/*
+Response:
 {
   success: true,
   error: false,
-  avatar: 'https://files.kick.com/images/user/27018175/profile_image/conversion/3c56e5cb-afc0-4760-93fb-f1e1bfb44e86-fullsize.webp',
-  bio: '"What we do in life, echoes in eternity."',
+  avatar: "https://...",
+  bio: "Streamer bio",
   verified: true,
   socials: {
-    instagram: {
-      row: 'tugkangonultas',
-      link: 'https://instagram.com/tugkangonultas'
-    },
-    x: { 
-      row: false, 
-      link: false 
-    },
-    youtube: { 
-      row: 'Elraenn', 
-      link: 'https://youtube.com/Elraenn' 
-    },
-    discord: { 
-      row: false 
-    },
-    tiktok: { 
-      row: false, 
-      link: false 
-    },
-    facebook: { 
-      row: false, 
-      link: false
-    }
+    instagram: { row: "username", link: "https://..." },
+    x: { row: "username", link: "https://..." },
+    // ... other social media accounts
   }
 }
+*/
 ```
-- If No Profile Result:
-```js
-{ success: false, error: false }
-```
-- Error Result:
-```js
-{ success: false, error: string }
-```
-## <img src="https://cdn.discordapp.com/emojis/1221761381942956033.png" alt="Kick logo" width="17"/> Twitch Get Stream
-- Code:
-```js
-const { Twitch } = require("streamer.info")
 
-const twitch = new Twitch()
+### Twitch.tv
 
-const streamerUsername = "grimm"
+```typescript
+import { Twitch } from 'streamer.info';
 
-const info = await twitch.getStream(streamerUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
+const stream = await Twitch.getStream('username');
+/*
+Response:
 {
   live: true,
   error: false,
-  name: 'Grimm - Twitch',
-  avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/460b9db2-562d-4bd0-af57-f1eb6f5a462c-profile_image-300x300.png',
-  title: '🟥T1 GRIM🟥AWOKEN FROM MY SLUMBER🟥TIME TO GET ACTIVE🟥SAGE WALL ALL OVER THE ENEMIES🟥LETS BE GREAT🟥',
+  name: "Streamer Name",
+  avatar: "https://...",
+  title: "Stream title",
+  viewers: 2500,
   thumbnail: {
-    src: [
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-80x45.jpg',
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-320x180.jpg',
-      'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-640x360.jpg'
-    ],
-    bestResolution: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_grimm-640x360.jpg'
+    src: ["https://..."],
+    bestResolution: "https://..."
   },
   urls: {
-    stream: 'https://www.twitch.tv/grimm',
-    fullScreen: 'https://player.twitch.tv/?channel=grimm&player=facebook&autoplay=true&parent=meta.tag'
+    stream: "https://twitch.tv/username",
+    fullScreen: "https://player.twitch.tv/..."
   },
-  start: {
-    date: {
-      row: '2024-07-09T17:56:00Z',
-      full: '17:56:00 07/09/2024',
-      separately: {
-        time: { 
-          full: '17:56:00', 
-          hours: '17', 
-          minutes: '56', 
-          seconds: '00' 
-        },
-        date: { 
-          full: '07/09/2024', 
-          month: '07', 
-          day: '09', 
-          year: 2024 
-        }
-      }
-    },
-    timestamp: { 
-      row: 1720547760, 
-      discord: {
-        shortTime: '<t:1720547760:t>',
-        longTime: '<t:1720547760:T>',
-        shortDate: '<t:1720547760:d>',
-        longDate: '<t:1720547760:D>',
-        longDateWithShortTime: '<t:1720547760:f>',
-        longDateWithDayOfWeekAndShortTime: '<t:1720547760:F>',
-        relative: '<t:1720547760:R>'
-      }
-    }
-  }
+  start: { date: {...}, timestamp: {...} }
 }
+*/
 ```
-- Not On Stream Result:
-```js
-{ live: false, error: false }
-```
-- Error Result:
-```js
-{ live: false, error: string }
-```
-## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Shorts
-- Code:
-```js
-const { YouTube } = require("streamer.info")
 
-const youtube = new YouTube()
+### YouTube.com (RSS-based)
 
-const youtuberUsername = "dinocornel"
+```typescript
+import { YouTube } from 'streamer.info';
 
-const info = await youtube.getLatestShorts(youtuberUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
+// Latest video
+const video = await YouTube.getLatestVideo('username');
+/*
+Response:
 {
   success: true,
   error: false,
-  title: 'Bro did it again #theultimatenerd #gamingsetup #gamingroom #gamer',
-  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
-  thumbnail: 'https://i.ytimg.com/vi/2375amwi4oE/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBFe_br2Z8x44HoQhVcPzLMLyhEcQ',
-  urls: { 
-    video: 'https://www.youtube.com/shorts/2375amwi4oE' 
-  }
+  title: "Video title",
+  thumbnail: "https://...",
+  urls: { video: "https://youtube.com/watch?v=..." }
 }
-```
-- Not On Stream Result:
-```js
-{ success: false, error: false }
-```
-- Error Result:
-```js
-{ success: false, error: string }
-```
-## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Latest Video
-- Code:
-```js
-const { YouTube } = require("streamer.info")
+*/
 
-const youtube = new YouTube()
+// Latest shorts
+const shorts = await YouTube.getLatestShorts('username');
 
-const youtuberUsername = "TenZ"
-
-const info = await youtube.getLatestVideo(youtuberUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
-{
-  success: true,
-  error: false,
-  title: 'The VALORANT Ultimate Guide for Beginners !! | SEN TenZ',
-  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
-  thumbnail: 'https://i.ytimg.com/vi/3xjpx8-2gD0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDUoITAP&rs=AOn4CLCl-uWjDEg22mbHexdehEkulmkC9w',
-  urls: { 
-    video: 'https://www.youtube.com/watch?v=3xjpx8-2gD0' 
-  }
-}
-```
-- Not On Stream Result:
-```js
-{ success: false, error: false }
-```
-- Error Result:
-```js
-{ success: false, error: string }
-```
-## <img src="https://cdn.discordapp.com/emojis/1221202822071324682.png" alt="Kick logo" width="17"/> YouTube Get Stream
-- Code:
-```js
-const { YouTube } = require("streamer.info")
-
-const youtube = new YouTube()
-
-const youtuberUsername = "apex47"
-
-const info = await youtube.getStream(youtuberUsername)
-
-console.log(info)
-```
-- On Stream Result: 
-```js
+// Live stream
+const stream = await YouTube.getStream('username');
+/*
+Response:
 {
   live: true,
   error: false,
-  title: 'AP BREN VS ONIC// ESL SNAPDRAGON 5  PLAYOFF',
-  avatar: 'https://yt3.googleusercontent.com/U3Q8WfcBnhzaAMuNZO8XuhUM5E1ZAAOx-Yfp307QiAZipbEjSOAOVUdTHEu3zaZSlcENNV4FW-s=s160-c-k-c0x00ffffff-no-rj',
-  viewers: '364',
-  thumbnail: 'https://i.ytimg.com/vi/gpCMTU2oSE0/hqdefault_live.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsxG64BrXJf5LKs1F04fgI6fHs9A',
-  urls: { 
-    video: 'https://www.youtube.com/watch?v=gpCMTU2oSE0' 
+  title: "Live stream title",
+  viewers: "N/A", // RSS doesn't provide viewer count
+  thumbnail: "https://...",
+  urls: { video: "https://youtube.com/watch?v=..." }
+}
+*/
+```
+
+## 🛠️ Advanced Usage
+
+### Type-Safe Development
+
+```typescript
+import { 
+  Kick, 
+  YouTube, 
+  cleanup, 
+  Utils,
+  type KickStreamResult,
+  type YouTubeVideoResult 
+} from 'streamer.info';
+
+// Type-safe usage
+async function getStreamInfo(username: string): Promise<KickStreamResult> {
+  try {
+    const result = await Kick.getStream(username);
+    
+    if (result.live) {
+      console.log('Stream info:', {
+        title: result.title,
+        viewers: result.viewers,
+        category: result.category,
+        startTime: result.start.timestamp.discord.relative
+      });
+    }
+    
+    return result;
+  } catch (error) {
+    console.error('Error:', Utils.Error.handleError(error));
+    return { live: false, error: 'Unknown error' };
   }
 }
-```
-- Not On Stream Result:
-```js
-{ live: false, error: false }
-```
-- Error Result:
-```js
-{ live: false, error: string }
+
+// Cleanup on app termination
+process.on('SIGINT', async () => {
+  await cleanup();
+  process.exit(0);
+});
 ```
 
-# ✨ Support
-You can come to our [Discord server](https://discord.gg/TCWbk7zWY5) and get help and support on [#npm-support](https://discord.com/channels/1196503995661942965/1249767884159455355) channel. Or if you send a friend to my [discord account](https://discord.com/users/389071682649849868), I will return as soon as possible.
+### Utility Functions
 
-<p align="center"><a href="https://discord.gg/TCWbk7zWY5"><img src="https://api.weblutions.com/discord/invite/TCWbk7zWY5/"></a></p>
-<p align="center"><a href="https://discord.com/users/389071682649849868"><img src="https://lanyard-profile-readme.vercel.app/api/389071682649849868"></a></p>
+```typescript
+import { Utils, silentCheckUpdate, getCurrentVersion } from 'streamer.info';
 
-# 📜 License
-This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/beftlidev/streamer.info/blob/main/LICENSE) file for details.
+// Browser management
+const isConnected = await Utils.Browser.isConnected();
+await Utils.Browser.closeAll();
+
+// Error handling
+const errorMessage = Utils.Error.handleError(error);
+const isRetryable = Utils.Error.isRetryableError(error);
+
+// Date/time utilities
+const timestamp = Utils.DateTime.getCurrentTimestamp();
+const discordFormat = Utils.DateTime.createDiscordTimestamp(timestamp);
+
+// Silent update check
+const updateInfo = await silentCheckUpdate();
+if (updateInfo.isUpdateAvailable) {
+  console.log(`New version available: ${updateInfo.latestVersion}`);
+}
+
+// Current version
+console.log(`Current version: ${getCurrentVersion()}`);
+```
+
+## ⚡ Performance Features
+
+- **Browser Instance Pooling**: Reuses browser instances across multiple operations
+- **Request Filtering**: Blocks unnecessary resources (images, CSS, fonts) for faster loading
+- **RSS Integration**: YouTube uses RSS feeds for improved reliability and speed
+- **Intelligent Caching**: Temporary response caching for better performance
+- **Concurrent Operations**: Supports parallel operations across platforms
+
+## 📊 TypeScript Support
+
+Full TypeScript support with comprehensive type definitions:
+
+```typescript
+import { 
+  KickStreamResult, 
+  TwitchStreamResult, 
+  YouTubeVideoResult,
+  YouTubeStreamResult,
+  KickProfileResult 
+} from 'streamer.info';
+
+// Type-safe variable declarations
+const stream: KickStreamResult = await Kick.getStream('username');
+
+// Type guards
+if (stream.live) {
+  // TypeScript knows stream is live here
+  console.log(stream.title); // ✅ Type safe
+  console.log(stream.viewers); // ✅ Type safe
+}
+```
+
+## 🔧 Configuration
+
+### Browser Settings
+
+Default browser settings are optimized for performance:
+
+- Headless mode enabled
+- Unnecessary resources blocked (images, CSS, fonts)
+- Request timeout: 30 seconds
+- Connection pooling active
+
+### Error Handling
+
+The library automatically retries on:
+
+- Network errors
+- Timeout errors
+- Browser connection errors
+
+## 🧪 Testing
+
+```bash
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+
+# Build project
+npm run build
+```
+
+## 📋 Requirements
+
+- Node.js >= 16.0.0
+- TypeScript >= 5.0.0 (for development)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
+
+## 📄 License
+
+MIT - See [LICENSE](LICENSE) file for details.
+
+## 🐛 Bug Reports
+
+If you find a bug, please report it on [GitHub Issues](https://github.com/beftlidev/streamer.info/issues).
+
+## 💖 Support
+
+If you like this project, please give it a ⭐ on GitHub!
+
+---
+
+**Developer**: [Beftli](https://github.com/beftlidev), [sw3do](https://github.com/sw3do) 
+**Version**: 2.0.0  
+**License**: MIT
